@@ -1,0 +1,86 @@
+================
+choice rule with condition and guard
+================
+{ color(X,C) : col(C) } = 1 :- node(X).
+---
+
+(source_file
+  (rule
+    (head
+      (aggregate
+        (set_aggregate_element
+          (literal
+            (function
+              (identifier)
+              (arguments
+                (variable)
+                (variable))))
+          (condition
+            (literal
+              (function
+                (identifier)
+                (arguments
+                  (variable))))))
+        (comparison_operator)
+        (number)))
+    (body
+      (literal
+        (function
+          (identifier)
+          (arguments
+            (variable)))))))
+
+================
+bounded set aggregate
+================
+1 { a(X); b(X) } 2.
+---
+
+(source_file
+  (rule
+    (head
+      (aggregate
+        (number)
+        (set_aggregate_element
+          (literal
+            (function
+              (identifier)
+              (arguments
+                (variable)))))
+        (set_aggregate_element
+          (literal
+            (function
+              (identifier)
+              (arguments
+                (variable)))))
+        (number)))))
+
+================
+body count aggregate with guard
+================
+n :- N = #count { X : node(X), X != 3 }.
+---
+
+(source_file
+  (rule
+    (head
+      (literal
+        (constant
+          (identifier))))
+    (body
+      (aggregate
+        (variable)
+        (comparison_operator)
+        (aggregate_function)
+        (aggregate_element
+          (variable)
+          (condition
+            (literal
+              (function
+                (identifier)
+                (arguments
+                  (variable))))
+            (comparison
+              (variable)
+              (comparison_operator)
+              (number))))))))

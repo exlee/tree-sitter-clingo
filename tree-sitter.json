@@ -1,0 +1,13 @@
+{
+  "grammars": [
+    {
+      "name": "clingo",
+      "camelcase": "Clingo",
+      "scope": "source.clingo",
+      "path": ".",
+      "file-types": ["lp", "clingo", "asp"],
+      "highlights": "queries/highlights.scm"
+    }
+  ],
+  "metadata": { "version": "0.1.0", "license": "MIT", "description": "Tree-sitter grammar for clingo (ASP)" }
+}

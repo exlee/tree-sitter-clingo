@@ -1,0 +1,8 @@
+{
+  "name": "tree-sitter-clingo",
+  "version": "0.1.0",
+  "description": "Tree-sitter grammar for clingo (ASP)",
+  "license": "MIT",
+  "main": "bindings/node",
+  "tree-sitter": [{ "scope": "source.clingo", "file-types": ["lp", "clingo", "asp"] }]
+}

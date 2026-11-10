@@ -1,0 +1,90 @@
+================
+directives
+================
+#const n = 8.
+#include "base.lp".
+#program step(t).
+#show color/2.
+#show X : color(X,_).
+#external q(t).
+#minimize { W@1,X : cost(X,W) }.
+:~ color(X,red), cost(X,W). [W@2, X]
+---
+
+(source_file
+  (const_directive
+    (identifier)
+    (number))
+  (include_directive
+    (string
+      (string_content)))
+  (program_directive
+    (identifier)
+    (identifier))
+  (show_directive
+    (signature
+      (identifier)
+      (number)))
+  (show_directive
+    (variable)
+    (body
+      (literal
+        (function
+          (identifier)
+          (arguments
+            (variable)
+            (anonymous_variable))))))
+  (external_directive
+    (function
+      (identifier)
+      (arguments
+        (constant
+          (identifier)))))
+  (optimize_directive
+    (optimize_element
+      (variable)
+      (number)
+      (variable)
+      (condition
+        (literal
+          (function
+            (identifier)
+            (arguments
+              (variable)
+              (variable)))))))
+  (weak_constraint
+    (body
+      (literal
+        (function
+          (identifier)
+          (arguments
+            (variable)
+            (constant
+              (identifier)))))
+      (literal
+        (function
+          (identifier)
+          (arguments
+            (variable)
+            (variable)))))
+    (weak_annotation
+      (variable)
+      (number)
+      (variable))))
+
+================
+comments and script
+================
+%* block *%
+% line
+#script (python)
+def f(x): return x
+#end.
+---
+
+(source_file
+  (comment)
+  (comment)
+  (script_block
+    (identifier)
+    (script_code)))

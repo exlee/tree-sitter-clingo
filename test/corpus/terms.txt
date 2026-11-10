@@ -1,0 +1,46 @@
+================
+arithmetic, intervals, external functions
+================
+v(|X-Y|) :- p(X), Z = X * Y ** 2 + @f(X) \ 3, q(1..n).
+---
+
+(source_file
+  (rule
+    (head
+      (literal
+        (function
+          (identifier)
+          (arguments
+            (absolute_value
+              (binary_expression
+                (variable)
+                (variable)))))))
+    (body
+      (literal
+        (function
+          (identifier)
+          (arguments
+            (variable))))
+      (comparison
+        (variable)
+        (comparison_operator)
+        (binary_expression
+          (binary_expression
+            (variable)
+            (binary_expression
+              (variable)
+              (number)))
+          (binary_expression
+            (external_function
+              (identifier)
+              (arguments
+                (variable)))
+            (number))))
+      (literal
+        (function
+          (identifier)
+          (arguments
+            (interval
+              (number)
+              (constant
+                (identifier)))))))))
